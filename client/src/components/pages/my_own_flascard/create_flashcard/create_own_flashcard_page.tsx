@@ -1,7 +1,9 @@
 import React from "react";
 import Stepper from "@/components/comp-519";
 
+
 import Step_1_form from "./step_1_form";
+
 
 const Create_own_flashcard_page = () => {
   const [currentStep, setCurrentStep] = React.useState(1);
@@ -23,12 +25,12 @@ const Create_own_flashcard_page = () => {
 
   return (
     <>
-      <div className="mx-auto w-5xl flex flex-col gap-5 mt-10">
-        <div className="w-full border-2 border-foreground p-4 rounded-md">
+      <div className="mx-auto w-5xl flex flex-col gap-5 mt-10 mb-10">
+        <div className="w-full shadow-xl p-4 rounded-md">
           <Stepper steps={steps} currentStep={currentStep} />
         </div>
 
-        <div className="flex flex-col w-full p-4 border-2 border-foreground rounded-md gap-4">
+        <div className="flex flex-col w-full p-4 shadow-xl rounded-md gap-4">
           <Step_1_form />
         </div>
       </div>
