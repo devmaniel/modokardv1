@@ -10,33 +10,44 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TestMy_own_flashcardCreate_flashcardRouteImport } from './routes/test/my_own_flashcard/create_flashcard'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TestMy_own_flashcardCreate_flashcardRoute =
+  TestMy_own_flashcardCreate_flashcardRouteImport.update({
+    id: '/test/my_own_flashcard/create_flashcard',
+    path: '/test/my_own_flashcard/create_flashcard',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/test/my_own_flashcard/create_flashcard': typeof TestMy_own_flashcardCreate_flashcardRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/test/my_own_flashcard/create_flashcard': typeof TestMy_own_flashcardCreate_flashcardRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/test/my_own_flashcard/create_flashcard': typeof TestMy_own_flashcardCreate_flashcardRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/test/my_own_flashcard/create_flashcard'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/test/my_own_flashcard/create_flashcard'
+  id: '__root__' | '/' | '/test/my_own_flashcard/create_flashcard'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  TestMy_own_flashcardCreate_flashcardRoute: typeof TestMy_own_flashcardCreate_flashcardRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +59,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/test/my_own_flashcard/create_flashcard': {
+      id: '/test/my_own_flashcard/create_flashcard'
+      path: '/test/my_own_flashcard/create_flashcard'
+      fullPath: '/test/my_own_flashcard/create_flashcard'
+      preLoaderRoute: typeof TestMy_own_flashcardCreate_flashcardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  TestMy_own_flashcardCreate_flashcardRoute:
+    TestMy_own_flashcardCreate_flashcardRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,7 +1,8 @@
-import { HouseIcon, InboxIcon, SparklesIcon, ZapIcon } from "lucide-react"
+import { HouseIcon, InboxIcon,  ZapIcon } from "lucide-react"
 
-import Logo from "@/components/navbar-components/logo"
-import UserMenu from "@/components/navbar-components/user-menu"
+import modokard_with_text_white from "@/assets/modokard_with_text_white.svg"
+
+import UserMenu from "@/components/user-menu"
 import { Button } from "@/components/ui/button"
 import {
   NavigationMenu,
@@ -118,7 +119,7 @@ export default function Component() {
         {/* Middle side: Logo */}
         <div className="flex items-center">
           <a href="#" className="text-primary hover:text-primary/90">
-            <Logo />
+            <img src={modokard_with_text_white} alt="Modokard" className="h-10 w-auto" />
           </a>
         </div>
 
@@ -126,15 +127,6 @@ export default function Component() {
         <div className="flex flex-1 items-center justify-end gap-4">
           {/* User menu */}
           <UserMenu />
-          {/* Upgrade button */}
-          <Button size="sm" className="text-sm sm:aspect-square">
-            <SparklesIcon
-              className="opacity-60 sm:-ms-1"
-              size={16}
-              aria-hidden="true"
-            />
-            <span className="sm:sr-only">Upgrade</span>
-          </Button>
         </div>
       </div>
     </header>

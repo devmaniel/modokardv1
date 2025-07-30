@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 
 // style
 import "./style/App.css";
-import './style/index.css'
+import './index.css'
 
 // Supports weights 100-900
 import '@fontsource-variable/outfit';
